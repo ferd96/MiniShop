@@ -70,17 +70,21 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
                 }
             });
         },
-        purchase() {
-            var order = angular.copy(this);
+        
+        ok(){
+          var order = angular.copy(this);
             // thuc hien dat hang
             $http.post("/rest/orders", order).then(resp => {
                 alert("Đặt hàng thành công");
                 $scope.cart.clear();
-                location.href = "/order/detail/" + resp.data.id;
+                location.href = "/order/detail/"+resp.data.id;
             }).catch(error => {
                 alert("Đặt hàng thất bại!")
                 console.log(error)
             })
+        },
+        purchase() {
+          
         }
     }
 })

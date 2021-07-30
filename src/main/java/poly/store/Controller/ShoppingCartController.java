@@ -9,4 +9,5 @@ public class ShoppingCartController {
       public String view() {
       	return "cart/view";
       }
+	
 }
