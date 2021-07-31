@@ -22,7 +22,7 @@ public class ProductSeriveimpl  implements ProductSerive{
 
 	@Override
 	public Product findById(Integer id) {
-		// TODO Auto-generated method stub
+		
 		return pdao.findById(id).get();
 	}
 
@@ -31,6 +31,21 @@ public class ProductSeriveimpl  implements ProductSerive{
 		
 		return pdao.findByCategoryId(cid);
 	}
+	@Override
+	public Product create(Product product) {	
+		return pdao.save(product);
+	}
 
+	@Override
+	public Product update(Product product) {
+		return pdao.save(product);
+	}
+
+	@Override
+	public void delete(Integer id) {
+		
+	 pdao.deleteById(id);
+	}
+	
 	
 }
