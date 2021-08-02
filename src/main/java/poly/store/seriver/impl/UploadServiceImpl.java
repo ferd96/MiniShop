@@ -20,14 +20,14 @@ public class UploadServiceImpl implements UploadService {
 	
 	
 	public File save(MultipartFile file, String folder) {
-		File dir = new File(app.getRealPath("/img/"+folder));
+		File dir = new File(app.getRealPath("/assets/"+folder));
 		if(!dir.exists()) {
 			dir.mkdirs();
 		}
 		String s = System.currentTimeMillis()+file.getOriginalFilename();
 		String name = Integer.toHexString(s.hashCode())+ s.substring(s.lastIndexOf("."));
 			try {
-				File savedFile = new File(dir,name);
+				File savedFile = new File(dir,file.getOriginalFilename());
 				file.transferTo(savedFile);
 				System.out.println(savedFile.getAbsolutePath());
 				return savedFile;
